@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Все задачи:</h1>
+<ul>
+    {% for todo in todos %}
+        <li>
+        <a href="{% url 'viewtodo' todo.id %}">
+            {% if todo.completed %}
+                <s>
+                {{ todo.title }}
+                </s>
+            {% else %}
+                {{ todo.title }}
+            {% endif %}
+        </a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

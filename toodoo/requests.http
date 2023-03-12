@@ -1,0 +1,46 @@
+# получение задачи
+GET 127.0.0.1:8000/api/tasks/
+Content-Type: application/json
+
+###
+
+# создание задачи
+POST 127.0.0.1:8000/api/tasks/
+Content-Type: application/json
+
+{
+  "title": "Post task 2",
+  "description": "POST task 2"
+}
+
+###
+
+# получение задачи 2
+GET 127.0.0.1:8000/api/tasks/2/
+
+###
+
+# создание задачи 3
+POST 127.0.0.1:8000/api/tasks/
+Content-Type: application/json
+
+{
+  "title": "Post task 3",
+  "description": "POST task 3"
+}
+
+###
+# обновление задачи
+PATCH 127.0.0.1:8000/api/tasks/2/
+Content-Type: application/json
+
+{
+  "description": "PATCH task 2"
+}
+
+###
+
+# удаление задачи
+DELETE 127.0.0.1:8000/api/tasks/4/
+
+###

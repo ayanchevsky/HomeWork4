@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {{ todo.title }}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить задачу</button>
+    </form>
+
+    {% if todo.completed %}
+        <form method="POST" action="{% url 'continuetodo' todo.id %}">
+        {% csrf_token %}
+        <button type="submit">Продолжить задачу</button>
+        </form>
+    {% else %}
+        <form method="POST" action="{% url 'completetodo' todo.id %}">
+        {% csrf_token %}
+        <button type="submit">Завершить задачу</button>
+        </form>
+    {% endif %}
+
+    <form method="POST" action="{% url 'deletetodo' todo.id %}">
+        {% csrf_token %}
+        <button type="submit">Удалить задачу</button>
+    </form>
+{% endblock %}

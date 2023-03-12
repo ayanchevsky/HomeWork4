@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Текущие задачи:</h1>
+<ul>
+    {% for todo in todos %}
+        <li>
+        <a href="{% url 'viewtodo' todo.id %}">
+            {{ todo.created_date|date:'M j Y H:i'  }} - {{ todo.title }}
+        </a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
